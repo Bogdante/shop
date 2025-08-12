@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Cool shop | Детали товара')
+
 @section('content')
     <div class="container py-5">
         <div class="row">

@@ -24,6 +24,11 @@ class CatalogService
         return $category->products()->paginate(self::DEFAULT_PAGINATION);
     }
 
+    public function findCategoryBySlug(?string $slug)
+    {
+        return Category::findBySlug($slug);
+    }
+
     public function getProductBySlug(string $slug)
     {
         return Product::getBySlug($slug);

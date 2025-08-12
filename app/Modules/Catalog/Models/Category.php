@@ -17,9 +17,17 @@ class Category extends Model
         'slug'
     ];
 
-    public static function getBySlug($slug)
+    public static function getBySlug(string $slug)
     {
         return self::where('slug', $slug)->firstOrFail();
+    }
+
+    public static function findBySlug(?string $slug): ?self
+    {
+        if ($slug === null) {
+            return null;
+        }
+        return self::where('slug', $slug)->first();
     }
 
     protected static function boot()

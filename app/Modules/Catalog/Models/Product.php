@@ -25,7 +25,7 @@ class Product extends Model
         'description',
     ];
 
-    public static function getBySlug($slug)
+    public static function getBySlug(string $slug)
     {
         return self::where('slug', $slug)->firstOrFail();
     }

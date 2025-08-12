@@ -29,7 +29,10 @@ class CatalogController extends Controller
         $category = $request->query('category', null);
         $allCategories = $this->catalogService->getCategories();
         $products = $this->catalogService->getProducts($category);
+        $selectedCategory = $this->catalogService->findCategoryBySlug($category);
+
         return view('catalog.products', [
+            'selectedCategory' => $selectedCategory,
             'categories' => $allCategories,
             'products' => $products
         ]);

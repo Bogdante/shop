@@ -1,8 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container py-5">
-        <h1 class="mb-4 text-center">Каталог товаров</h1>
+    <div class="container py-3">
+        <h1 class="mb-4 text-left">
+            @isset($selectedCategory)
+                {{ $selectedCategory->name }}
+            @else
+                Все товары
+            @endisset
+        </h1>
 
         <div class="row">
             @foreach($products as $product)

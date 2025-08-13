@@ -45,6 +45,16 @@ class Product extends Model
                 }
 
                 $model->slug = $slug;
+            } else if (!empty($model->slug)) {
+                $slug = $model->slug;
+                $originalSlug = $slug;
+                $count = 1;
+
+                while (static::where('slug', $slug)->where('id', '<>', $model->id)->exists()) {
+                    $slug = $originalSlug . '-' . $count++;
+                }
+
+                $model->slug = $slug;
             }
         });
     }
